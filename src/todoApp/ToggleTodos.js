@@ -4,7 +4,6 @@ import store from '../store';
 export default none => {
 
   const handleSetVisibilityFilter = filter => event => {
-    console.log(filter);
     store.dispatch({
       type: 'SET_VISIBILITY_FILTER',
       filter
