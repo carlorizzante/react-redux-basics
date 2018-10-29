@@ -1,10 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-const ToggleTodos = (props, { store }) => {
+export const ToggleTodos = ({ dispatch }) => {
 
   const handleSetVisibilityFilter = filter => event => {
-    store.dispatch({
+    dispatch({
       type: 'SET_VISIBILITY_FILTER',
       filter
     });
@@ -21,8 +21,5 @@ const ToggleTodos = (props, { store }) => {
     </div>
   );
 }
-ToggleTodos.contextTypes = {
-  store: PropTypes.object
-}
 
-export default ToggleTodos;
+export default connect()(ToggleTodos);

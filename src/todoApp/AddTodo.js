@@ -1,16 +1,26 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import { sample } from '../utils';
 import sampleTexts from '../sampleTexts';
 
-const AddTodo = (props, { store }) => {
+// const handleSubmit = dispatch => event => {
+//   event.preventDefault();
+//   const text = event.target[0].value;
+//   event.target[0].value = '';
+//   dispatch({
+//     type: 'ADD_TODO',
+//     text: text || sample(sampleTexts)
+//   });
+// }
+
+export const AddTodo = ({ dispatch }) => {
 
   const handleSubmit = event => {
     event.preventDefault();
     const text = event.target[0].value;
     event.target[0].value = '';
-    store.dispatch({
+    dispatch({
       type: 'ADD_TODO',
       text: text || sample(sampleTexts)
     });
@@ -23,8 +33,14 @@ const AddTodo = (props, { store }) => {
     </form>
   );
 }
-AddTodo.contextTypes = {
-  store: PropTypes.object
-}
 
-export default AddTodo;
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     // handleSubmit: handleSubmit(dispatch),
+//     dispatch
+//   }
+// }
+
+// export default connect(null, mapDispatchToProps)(AddTodo);
+// export default connect(null, null)(AddTodo);
+export default connect()(AddTodo);
