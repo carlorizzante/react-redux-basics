@@ -8,6 +8,7 @@ import VisibleTodoList from './todoApp/VisibleTodoList';
 import './todoApp/setup';
 
 class App extends Component {
+
   render() {
     return (
       <div className="App">

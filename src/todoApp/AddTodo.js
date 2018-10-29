@@ -1,10 +1,10 @@
 import React from 'react';
-import store from '../store';
+import PropTypes from 'prop-types';
 
 import { sample } from '../utils';
 import sampleTexts from '../sampleTexts';
 
-export default () => {
+const AddTodo = (props, { store }) => {
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -23,3 +23,8 @@ export default () => {
     </form>
   );
 }
+AddTodo.contextTypes = {
+  store: PropTypes.object
+}
+
+export default AddTodo;

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import store from '../store';
+import PropTypes from 'prop-types';
 
 import TodoList from './TodoList';
 
 export default class VisibleTodoList extends Component {
 
   state = {
-    ...store.getState()
+    ...this.context.store.getState()
   }
 
   getVisibleTodos = none => {
@@ -23,13 +23,15 @@ export default class VisibleTodoList extends Component {
   }
 
   handleToggleTodo = id => event => {
-    store.dispatch({
+    this.context.store.dispatch({
       type: 'TOGGLE_TODO',
       id
     });
   }
 
   render() {
+    const { store } = this.context;
+
     store.subscribe(none => this.setState({
       ...store.getState()
     }));
@@ -41,4 +43,7 @@ export default class VisibleTodoList extends Component {
       />
     );
   }
+}
+VisibleTodoList.contextTypes = {
+  store: PropTypes.object
 }

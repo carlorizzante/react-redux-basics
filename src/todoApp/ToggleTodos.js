@@ -1,7 +1,7 @@
 import React from 'react';
-import store from '../store';
+import PropTypes from 'prop-types';
 
-export default none => {
+const ToggleTodos = (props, { store }) => {
 
   const handleSetVisibilityFilter = filter => event => {
     store.dispatch({
@@ -21,3 +21,8 @@ export default none => {
     </div>
   );
 }
+ToggleTodos.contextTypes = {
+  store: PropTypes.object
+}
+
+export default ToggleTodos;
