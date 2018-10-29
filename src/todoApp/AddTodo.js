@@ -1,11 +1,19 @@
 import React from 'react';
+import store from '../store';
 
-export default ({ onSubmit }) => {
+import { sample } from '../utils';
+import sampleTexts from '../sampleTexts';
+
+export default () => {
+
   const handleSubmit = event => {
     event.preventDefault();
     const text = event.target[0].value;
     event.target[0].value = '';
-    return onSubmit(text);
+    store.dispatch({
+      type: 'ADD_TODO',
+      text: text || sample(sampleTexts)
+    });
   }
 
   return (
