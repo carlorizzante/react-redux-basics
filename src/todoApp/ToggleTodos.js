@@ -1,13 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import { setVisibilityFilter } from '../actions';
+
 export const ToggleTodos = ({ dispatch }) => {
 
   const handleSetVisibilityFilter = filter => event => {
-    dispatch({
-      type: 'SET_VISIBILITY_FILTER',
-      filter
-    });
+    dispatch(setVisibilityFilter(filter));
   }
 
   return (

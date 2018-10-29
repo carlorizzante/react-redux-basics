@@ -1,18 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { sample } from '../utils';
-import sampleTexts from '../sampleTexts';
-
-// const handleSubmit = dispatch => event => {
-//   event.preventDefault();
-//   const text = event.target[0].value;
-//   event.target[0].value = '';
-//   dispatch({
-//     type: 'ADD_TODO',
-//     text: text || sample(sampleTexts)
-//   });
-// }
+import { addTodo } from '../actions';
 
 export const AddTodo = ({ dispatch }) => {
 
@@ -20,10 +9,7 @@ export const AddTodo = ({ dispatch }) => {
     event.preventDefault();
     const text = event.target[0].value;
     event.target[0].value = '';
-    dispatch({
-      type: 'ADD_TODO',
-      text: text || sample(sampleTexts)
-    });
+    dispatch(addTodo(text));
   }
 
   return (
@@ -34,13 +20,4 @@ export const AddTodo = ({ dispatch }) => {
   );
 }
 
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     // handleSubmit: handleSubmit(dispatch),
-//     dispatch
-//   }
-// }
-
-// export default connect(null, mapDispatchToProps)(AddTodo);
-// export default connect(null, null)(AddTodo);
 export default connect()(AddTodo);

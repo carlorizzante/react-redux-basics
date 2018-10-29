@@ -1,12 +1,12 @@
 import store from '../store';
 
-import { sample } from '../utils';
-import sampleTexts from '../sampleTexts';
+import { addTodo, toggleTodo } from '../actions';
+// import { setVisibilityFilter } from '../actions';
 
-store.dispatch({ type: 'ADD_TODO', text: sample(sampleTexts) });
-store.dispatch({ type: 'ADD_TODO', text: sample(sampleTexts) });
-store.dispatch({ type: 'ADD_TODO', text: sample(sampleTexts) });
-store.dispatch({ type: 'ADD_TODO', text: sample(sampleTexts) });
-store.dispatch({ type: 'TOGGLE_TODO', id: store.getState().todos[2].id });
-// store.dispatch({ type: 'SET_VISIBILITY_FILTER', filter: "SHOW_ACTIVE" });
-// store.dispatch({ type: 'SET_VISIBILITY_FILTER', filter: "SHOW_COMPLETED" });
+store.dispatch(addTodo());
+store.dispatch(addTodo());
+store.dispatch(addTodo());
+store.dispatch(addTodo());
+store.dispatch(toggleTodo(2));
+// store.dispatch(setVisibilityFilter('SHOW_ACTIVE'));
+// store.dispatch(setVisibilityFilter('SHOW_COMPLETED'));
