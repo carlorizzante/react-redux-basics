@@ -9,14 +9,17 @@ const styles = {
 
 export default ({ todos, onTodoClick }) => {
   return (
-    <ul style={ styles.todos }>
-      { todos.map((todo, index) => (
-        <Todo
-          key={ index }
-          todo={ todo }
-          onClick={ onTodoClick(todo.id) }
-        />
-      ))}
-    </ul>
+    <>
+      <h1>Todo List</h1>
+      <ul style={ styles.todos }>
+        { todos.map((todo, index) => (
+          <Todo
+            key={ index }
+            todo={ todo }
+            onClick={ onTodoClick(todo.id) }
+          />
+        ))}
+      </ul>
+    </>
   );
 }
